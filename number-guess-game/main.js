@@ -9,10 +9,28 @@
 // 유저가 이미 입력한 숫자를 또 입력하면 알림, 기회를 깍지 않음
 
 let randomNumber = 0;
+let playButton = document.getElementById("play-button");
+let userInput = document.getElementById("user-input");
+let resultArea = document.getElementById("result-area");
+
+
+playButton.addEventListener("click", play);
 
 function generateRandomNumber() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
-    console.log('정답', randomNumber);
+    console.log("정답", randomNumber);
+}
+
+function play() {
+    let userValue = userInput.value;
+
+    if(userValue < randomNumber) {
+        resultArea.textContent = "Up!";
+    } else if(userValue > randomNumber) {
+        resultArea.textContent = "Down!";
+    } else {
+        resultArea.textContent = "That's Right!";
+    }
 }
 
 generateRandomNumber();
