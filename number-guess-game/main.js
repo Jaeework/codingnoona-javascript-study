@@ -11,6 +11,7 @@
 let randomNumber = 0;
 let chances = 3;
 let gameOver = false;
+let history = [];
 
 let playButton = document.getElementById("play-button");
 let resetButton = document.getElementById("reset-button");
@@ -30,6 +31,16 @@ function generateRandomNumber() {
 function play() {
     let userValue = userInput.value;
 
+    if(userValue < 1 || userValue > 100) {
+        resultArea.textContent = "1과 100 사이의 숫자를 입력하세요";
+        return;
+    }
+
+    if(history.includes(userValue)) {
+        resultArea.textContent = "이미 입력한 숫자입니다. 다른 숫자를 입력해주세요";
+        return;
+    }
+
     chances--;
     chanceArea.textContent = `남은 기회 : ${chances}번`
     if(userValue < randomNumber) {
@@ -39,6 +50,8 @@ function play() {
     } else {
         resultArea.textContent = "That's Right!";
     }
+
+    history.push(userValue);
 
     if(chances < 1) {
         gameOver = true;
@@ -50,11 +63,15 @@ function play() {
 }
 
 function reset() {
+
     userInput.value = "";
     chances = 3;
     gameOver = false;
+    history = [];
+
     resultArea.textContent = "결과값이 나타납니다.";
     chanceArea.textContent = `남은 기회 : ${chances}번`;
+    
     playButton.disabled = false;
     generateRandomNumber();
 
