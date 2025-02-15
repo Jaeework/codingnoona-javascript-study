@@ -50,7 +50,7 @@ function play() {
 }
 
 function reset() {
-    userInput = "";
+    userInput.value = "";
     chances = 3;
     gameOver = false;
     resultArea.textContent = "결과값이 나타납니다.";
