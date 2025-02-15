@@ -22,6 +22,9 @@ let chanceArea = document.getElementById("chance-area");
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
+userInput.addEventListener("focus", function() {
+    userInput.value = "";
+});
 
 function generateRandomNumber() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -49,6 +52,7 @@ function play() {
         resultArea.textContent = "Down!";
     } else {
         resultArea.textContent = "That's Right!";
+        gameOver = true;
     }
 
     history.push(userValue);
