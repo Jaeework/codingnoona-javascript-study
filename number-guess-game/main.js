@@ -18,6 +18,7 @@ let resetButton = document.getElementById("reset-button");
 let userInput = document.getElementById("user-input");
 let resultArea = document.getElementById("result-area");
 let chanceArea = document.getElementById("chance-area");
+let answer = document.getElementById("answer");
 
 
 playButton.addEventListener("click", play);
@@ -29,6 +30,7 @@ userInput.addEventListener("focus", function() {
 function generateRandomNumber() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
     console.log("정답", randomNumber);
+    answer.textContent = `${randomNumber}`;
 }
 
 function play() {
