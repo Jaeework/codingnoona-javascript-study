@@ -121,29 +121,4 @@ button:disabled {
     background-color: #6c757d;
 }
 
-.scroll-container {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 20px;
-    background-color: #f0f0f0;
-    border-left: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-}
-
-.scroll-button {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #666;
-}
-
-.scroll-track {
-    flex-grow: 1;
-    width: 100%;
-}
 
