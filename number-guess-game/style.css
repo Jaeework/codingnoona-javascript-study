@@ -1,1 +1,149 @@
+body {
+    background-image: url("image/background.png");
+    background-size: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 800px;
+    height: 600px;
+    border: 3px solid #4b2d83;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.title-bar {
+    height: 40px;
+    background-color: #4b2d83;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    width: 20px;
+    height: 20px;
+    background-color: #f8ccff;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #4b2d83;
+    cursor: pointer;
+}
+
+.content {
+    height: calc(100% - 40px);  /* .title-bar 높이 제외한 나머지 */
+    background-color: white;
+    position: relative;
+    overflow: auto;
+}
+
+.game-container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #4b2d83;
+    margin-bottom: 30px;
+}
+
+#result-area, #chance-area {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#result-area {
+    background-color: #e9ecef;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chance-area {
+    color: #4b2d83;
+    font-weight: bold;
+}
+
+.input-area {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#user-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #4b2d83;
+    margin-right: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4b2d83;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #3a2266;
+}
+
+button:disabled {
+    background-color: #6c757d;
+}
+
+.scroll-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background-color: #f0f0f0;
+    border-left: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-button {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+}
+
+.scroll-track {
+    flex-grow: 1;
+    width: 100%;
+}
 
