@@ -23,6 +23,9 @@ let answer = document.getElementById("answer");
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
+userInput.addEventListener("keypress", function(event){
+    if(event.key === "Enter") {play();}
+});
 userInput.addEventListener("focus", function() {
     userInput.value = "";
 });
