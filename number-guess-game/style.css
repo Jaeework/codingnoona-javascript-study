@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background-image: url("image/background.png");
     background-size: auto;
@@ -6,7 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'DungGeunMo';
 }
 
 .container {
@@ -68,7 +75,7 @@ h1 {
     margin-bottom: 5%;
 }
 
-#result-area, #chance-area, #answer-area {
+#result-area, #chance-area, #history-area, .input-area, .answer-area {
     font-size: 1rem;
     margin-bottom: 3%;
     padding: 10px;
@@ -78,6 +85,7 @@ h1 {
 }
 
 #result-area {
+    font-size: 1.1rem;
     background-color: #e9ecef;
     min-height: 50px;
     display: flex;
@@ -85,8 +93,17 @@ h1 {
     align-items: center;
 }
 
-#answer-area {
-    margin-top: 3%;
+#chance-area, #history-area {
+    margin-bottom: 0.5%;
+}
+
+#history-area {
+    color: #aa60c8;
+    font-weight: bold;
+}
+
+.answer-area {
+    margin: 3% 0 0 0;
     background-color: #e9ecef;
     min-height: 50px;
     display: flex;
@@ -100,12 +117,8 @@ h1 {
     font-weight: bold;
 }
 
-.input-area {
-    display: flex;
-    margin-bottom: 3%;
-}
-
 #user-input {
+    font-family: 'DungGeunMo';
     padding: 10px;
     font-size: 1rem;
     border: 2px solid #4b2d83;
@@ -115,8 +128,14 @@ h1 {
     text-align: center;
 }
 
+.button-area {
+    display: flex;
+    justify-content: center;
+}
+
 button {
     padding: 10px 20px;
+    font-family: 'DungGeunMo';
     font-size: 1rem;
     background-color: #4b2d83;
     color: white;
@@ -163,7 +182,7 @@ button:disabled {
         margin-bottom: 3%;
     }
 
-    .input-area {
+    .button-area {
         flex-direction: column;
         align-items: center;
     }

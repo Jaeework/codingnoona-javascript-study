@@ -7,6 +7,8 @@
 // 3번의 기회를 다쓰면 게임이 끝남 (더이상 추측 불가, 버튼이 disable )
 // 유저가 1~100 범위 밖에 숫자를 입력하면 알림, 기회를 깍지 않음
 // 유저가 이미 입력한 숫자를 또 입력하면 알림, 기회를 깍지 않음
+// 남은 기회 소진시 게임오버 메세지 보여주기
+// 그동안 입력한 숫자 보여주기
 
 let randomNumber = 0;
 let chances = 3;
@@ -17,6 +19,7 @@ let playButton = document.getElementById("play-button");
 let resetButton = document.getElementById("reset-button");
 let userInput = document.getElementById("user-input");
 let resultArea = document.getElementById("result-area");
+let historyArea = document.getElementById("history-area");
 let chanceArea = document.getElementById("chance-area");
 let answer = document.getElementById("answer");
 
@@ -37,33 +40,36 @@ function generateRandomNumber() {
 }
 
 function play() {
-    let userValue = userInput.value;
+    let userValue = Number(userInput.value);
 
-    if(userValue < 1 || userValue > 100) {
+    if(userValue < 1 || userValue > 100 || !Number.isInteger(userValue)) {
         resultArea.textContent = "1과 100 사이의 숫자를 입력하세요";
         return;
     }
 
     if(history.includes(userValue)) {
-        resultArea.textContent = "이미 입력한 숫자입니다. 다른 숫자를 입력해주세요";
+        resultArea.textContent = "이미 입력한 숫자입니다. 다른 숫자를 입력하세요.";
         return;
     }
 
     chances--;
     chanceArea.textContent = `남은 기회 : ${chances}번`
     if(userValue < randomNumber) {
-        resultArea.textContent = "Up!";
+        resultArea.textContent = "Up! 👆🏻";
     } else if(userValue > randomNumber) {
-        resultArea.textContent = "Down!";
+        resultArea.textContent = "Down! 👇🏻";
     } else {
-        resultArea.textContent = "That's Right!";
+        resultArea.textContent = "That's Right! 🎯";
         gameOver = true;
     }
 
     history.push(userValue);
+    history.sort((a,b) => {return a-b});
+    historyArea.textContent = `입력한 숫자 : ${history.join(", ")}`;
 
-    if(chances < 1) {
+    if(chances < 1 && !gameOver) {
         gameOver = true;
+        resultArea.textContent = `Game Over... The answer is ${randomNumber}`;
     }
 
     if(gameOver) {
@@ -78,8 +84,9 @@ function reset() {
     gameOver = false;
     history = [];
 
-    resultArea.textContent = "결과값이 나타납니다.";
+    resultArea.textContent = "1과 100 사이의 숫자를 입력하세요";
     chanceArea.textContent = `남은 기회 : ${chances}번`;
+    historyArea.textContent = "";
     
     playButton.disabled = false;
     generateRandomNumber();
