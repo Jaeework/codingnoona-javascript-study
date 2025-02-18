@@ -45,3 +45,27 @@ body {
     padding: 1em;
 }
 
+.task-done {
+    text-decoration: line-through;
+}
+
+.task button {
+    border: none;
+    background-color: white;
+}
+
+.fa-check {
+    color: green;
+}
+
+.fa-rotate-right {
+    color: gray;
+}
+
+/* .task-done + div .fa-check {
+    color: green;
+} */
+
+.fa-trash {
+    color: black;
+}
