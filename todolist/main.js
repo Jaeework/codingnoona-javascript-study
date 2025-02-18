@@ -16,6 +16,7 @@ let tabs = document.querySelectorAll(".task-tabs div");
 let taskList = [];
 let mode = "all";
 let filterList = [];
+let underline = document.getElementById("under-line");
 
 for(let i = 1; i < tabs.length; i++) {
     tabs[i].addEventListener("click", function(event) {
@@ -24,6 +25,9 @@ for(let i = 1; i < tabs.length; i++) {
 }
 
 addButton.addEventListener("click", addTask);
+taskInput.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {addTask();}
+});
 
 
 function addTask() {
@@ -36,9 +40,14 @@ function addTask() {
         };
 
         taskList.push(task);
-        console.log(taskList);
+        taskInput.value = "";
+
+        render();
+
+    } else {
+        taskInput.placeholder = "할 일을 입력해주세요";
+        taskInput.focus();
     }
-    render();
 }
 
 function render() {
@@ -79,15 +88,13 @@ function render() {
 }
 
 function toggleComplete(id) {
-    console.log(id);
     for(let i = 0; i < taskList.length; i++) {
         if(taskList[i].id == id) {
             taskList[i].isComplete = !taskList[i].isComplete;
             break;
         }
     }
-    console.log(taskList);
-    render();
+    filter();
 }
 
 function deleteTask(id) {
@@ -104,6 +111,8 @@ function deleteTask(id) {
 function filter(event) {
     if(event) {
         mode = event.target.id;
+        underline.style.left = event.currentTarget.offsetLeft + "px";
+        underline.style.width = event.currentTarget.offsetWidth + "px";
     }
     filterList = [];
 
