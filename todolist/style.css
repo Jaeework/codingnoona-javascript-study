@@ -15,6 +15,11 @@ body {
     padding: 1em 0;
 }
 
+#add-button {
+    border: solid 0.3px;
+    border-radius: 5px;
+}
+
 .task-area {
     border: 1px solid lightgray;
 }
@@ -47,13 +52,17 @@ body {
     padding: 1em;
 }
 
+.task.done {
+    background-color: rgba(0, 0, 0, 0.09);
+}
+
 .task-done {
     text-decoration: line-through;
 }
 
-.task button {
+button {
     border: none;
-    background-color: white;
+    background-color: transparent;
 }
 
 .fa-check {

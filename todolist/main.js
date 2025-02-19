@@ -42,7 +42,7 @@ function addTask() {
         taskList.push(task);
         taskInput.value = "";
 
-        render();
+        filter();
 
     } else {
         taskInput.placeholder = "할 일을 입력해주세요";
@@ -64,7 +64,7 @@ function render() {
     let resultHTML = '';
     for(let i = 0; i < list.length; i++) {
         if(list[i].isComplete == true) {
-            resultHTML += `<div class="task">
+            resultHTML += `<div class="task done">
                                 <div class="task-done">${list[i].taskContent}</div>
                                 <div>
                                     <button onclick="toggleComplete('${list[i].id}')"><i class="fa-sharp fa-solid fa-rotate-right"></i></button>
