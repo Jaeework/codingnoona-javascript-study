@@ -1,27 +1,67 @@
 body {
     margin: 0;
+    height: 100vh;
     background-image: url("images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'NanumHuman';
 }
 
 .container {
+    margin-top: 3%;
     background-color: white;
-    min-height: 100vh;
+    min-height: 90vh;
+    max-height: 95vh;
+    overflow: hidden;
+    width: 90%;
+    padding-bottom: 30px;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+h1 {
+    font-family: 'open sans';
+    padding: 3%;
+    text-align: center;
+    font-weight: 700;
+}
+
 .input-area {
-    padding: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    width: 60%;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#task-input {
+    background-color: whitesmoke;
+    flex: 1;
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding: 15px 30px;
+    font-size: 20px;
 }
 
 #add-button {
-    border: solid 0.3px;
-    border-radius: 5px;
+    border-radius: 40px;
+    height: 55px;
+    width: 55px;
+    padding: 15px;
+    background-color: #dbe3cf;
+    position: absolute;
+    right: 0;
 }
 
 .task-area {
-    border: 1px solid lightgray;
+    width: 85%;
+    justify-self: center;
+    overflow: hidden;
 }
 
 .task-tabs {
@@ -36,8 +76,8 @@ body {
 }
 
 #under-line {
-    height: 4px;
-    background-color: pink;
+    height: 5px;
+    background-color: #d9b9a8;
     position: absolute;
     width: 65px;
     left:0px;
@@ -46,14 +86,23 @@ body {
     transition: 0.5s;
 }
 
+#task-board {
+    overflow-y: auto;
+    max-height: calc(90vh - 250px);
+    padding-top: 0.5em;
+}
+
 .task {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    padding: 1em 2em;
+    margin: 0.5em 0;
+    border-radius: 25px;
+    background-color: #dbe3cf;
 }
 
 .task.done {
-    background-color: rgba(0, 0, 0, 0.09);
+    background-color: whitesmoke;
 }
 
 .task-done {
@@ -73,10 +122,58 @@ button {
     color: gray;
 }
 
-/* .task-done + div .fa-check {
-    color: green;
-} */
-
 .fa-trash {
     color: black;
 }
+
+/* for tablet (~800px width) */
+@media (max-width: 800px) {
+    .container {
+        height: 95vh;
+    }
+
+    .input-area {
+        width: 75%;
+    }
+}
+
+/* for mobile (360px ~ 600px) */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+
+    .input-area {
+        width: 80%;
+    }
+
+    .task-area {
+        width: 95%;
+    }
+
+    .task {
+        padding: 1em;
+        margin: 0.5em 0;
+    }
+}
+
+/* for small device (~360px width) */
+@media (max-width: 360px) {
+    .input-area {
+        width: 95%;
+    }
+
+    .task-area {
+        width: 95%;
+    }
+
+    #task-board {
+        max-height: calc(90vh - 200px);
+    }
+
+    .task {
+        padding: 1em;
+        margin: 0.5em 0;
+    }
+}
+
