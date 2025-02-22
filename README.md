@@ -40,4 +40,5 @@
   - [x] 모바일 버전에서도 확인할 수 있는 반응형 웹이다
 ### 2.5 할 일 앱 다시 만들어보기
 ### 2.6 [ES6 자바스크립트 최신 문법](https://hackmd.io/@qEGG2y5qSJeoFpoWLh1Dzw/Byiq3VU9kg)
+### 2.7 [배열 함수](https://hackmd.io/@qEGG2y5qSJeoFpoWLh1Dzw/r1yTMZv91l)
 
