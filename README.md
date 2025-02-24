@@ -42,3 +42,13 @@
 ### 2.6 [ES6 자바스크립트 최신 문법](https://hackmd.io/@qEGG2y5qSJeoFpoWLh1Dzw/Byiq3VU9kg)
 ### 2.7 [배열 함수](https://hackmd.io/@qEGG2y5qSJeoFpoWLh1Dzw/r1yTMZv91l)
 
+## Week 3
+### 3.1 뉴스 타임즈 만들기
+#### ✅ 주요 기능
+- 유저는 최신 뉴스를 볼 수 있다.
+- 뉴스에는 사진, 제목, 내용, 출처, 날짜가 있다.
+- 뉴스를 sport, tech, business 등 카테고리별로 볼 수 있다.
+- 뉴스를 검색할 수 있다.
+- 웹사이트는 반응형 웹페이지다.
+- pagenation으로 다음 뉴스 정보를 받아볼 수 있다.
+
