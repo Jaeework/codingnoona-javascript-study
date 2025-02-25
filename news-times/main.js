@@ -17,15 +17,18 @@ const render = () => {
     const newsHTML = newsList.map((news) => {
                 return  `<div class="row news">
                             <div class="col col-lg-4">
-                                <img class="news-img-size" src="${news.urlToImage}">
+                                <img class="news-img-size" src="${news.urlToImage || 'https://www.testo.com/images/not-available.jpg'}">
                             </div>
                             <div class="col col-lg-8">
                                 <h2>${news.title}</h2>
                                 <p>
-                                    ${news.description}
+                                    ${!news.description ? "내용없음" 
+                                        : news.description.length > 200
+                                        ? news.description.substring(0, 200) + "..."
+                                        : news.description}
                                 </p>
                                 <div>
-                                    ${news.source.name} * ${news.publishedAt}
+                                    ${news.source.name || "no source"} * ${moment(news.publishedAt).fromNow()}
                                 </div>
                             </div>
                         </div>`
