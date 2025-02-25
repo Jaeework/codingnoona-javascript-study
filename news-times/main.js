@@ -12,3 +12,16 @@ const getLatestNews = async () => {
 }
 
 getLatestNews();
+
+function openNav() {
+    document.getElementsByClassName("menus")[0].style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementsByClassName("menus")[0].style.width = "0";
+}
+
+function toggleSearch() {
+    document.getElementsByClassName("search-input-area")[0].classList.toggle("disabled");
+}
+

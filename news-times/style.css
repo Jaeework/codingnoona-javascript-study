@@ -1,0 +1,108 @@
+.search-container {
+    display: flex;
+    justify-content: start;
+}
+
+.search-toggle-button {
+    border:none;
+    background: none;
+    height: 100%;
+}
+
+.disabled {
+    display: none;
+}
+
+.search-button {
+    border: none;
+    border-radius: 5px;
+    height: 100%;
+    color: white;
+    background-color: steelblue;
+}
+
+.head-line {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.head-line svg {
+    width: 430px;
+}
+
+.menus {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 4px double #000;
+}
+
+.menus button {
+    border: none;
+    background: none;
+    margin: 5px;
+}
+
+.menus button:hover {
+    background-color: beige;
+}
+
+.close-button, .open-button {
+    display: none;
+}
+
+.news-img-size {
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.news {
+    border-bottom: 2px solid black;
+}
+
+@media (max-width: 600px) {
+    .menus {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: antiquewhite;
+        overflow-x: hidden;
+        margin-top: 0px;
+        border-bottom: none;
+        padding-top:15px;
+        transition: 0.5s;
+        flex-direction: column;
+    }
+
+    .menus button {
+        padding: 8px 8px 8px 32px;
+        font-size: 18px;
+        color: #818181;
+        display: inline;
+        transition: 0.3s;
+    }
+
+    .menus .close-button {
+        display: inline;
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        padding: 8px;
+    }
+
+    .open-button {
+        display: inline;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+}
+
