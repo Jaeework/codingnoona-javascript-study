@@ -1,15 +1,22 @@
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
 .search-container {
     display: flex;
     justify-content: start;
+    align-items: center;
+    height: 100%;
 }
 
 .search-toggle-button {
     border:none;
     background: none;
-    height: 100%;
+    font-size: 20px;
 }
 
-.disabled {
+.hide {
     display: none;
 }
 
@@ -63,6 +70,17 @@
     border-bottom: 2px solid black;
 }
 
+@media (min-width: 601px) {
+    .menus {
+        display: flex !important;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: auto !important;
+        position: static !important;
+        flex-direction: row !important;
+    }
+}
+
 @media (max-width: 600px) {
     .menus {
         height: 100%;
@@ -100,8 +118,9 @@
 
     .open-button {
         display: inline;
-        font-size: 30px;
+        font-size: 25px;
         cursor: pointer;
+        margin-right: 5px;
     }
 
 }
