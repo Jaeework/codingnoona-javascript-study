@@ -15,24 +15,27 @@ const getLatestNews = async () => {
 
 const render = () => {
     const newsHTML = newsList.map((news) => {
-                return  `<div class="row news">
-                            <div class="col-lg-4">
-                                <img class="news-img-size" src="${news.urlToImage || 'https://www.testo.com/images/not-available.jpg'}"
-                                onerror="this.onerror=null; this.src='https://www.testo.com/images/not-available.jpg'">
-                            </div>
-                            <div class="col-lg-8">
-                                <h2>${news.title}</h2>
-                                <p>
-                                    ${!news.description ? "내용없음" 
-                                        : news.description.length > 200
-                                        ? news.description.substring(0, 200) + "..."
-                                        : news.description}
-                                </p>
-                                <div>
-                                    ${news.source.name || "no source"} * ${moment(news.publishedAt).fromNow()}
-                                </div>
-                            </div>
-                        </div>`
+        const title = document.createElement("div");
+        title.textContent = news.title || "제목 없음";
+
+        const description = document.createElement("div");
+        description.textContent = news.description 
+            ? (news.description.length > 200 ? news.description.substring(0, 200) + "..." : news.description)
+            : "내용 없음";
+
+        return `<div class="row news">
+                    <div class="col-lg-4">
+                        <img class="news-img-size" src="${news.urlToImage || 'https://www.testo.com/images/not-available.jpg'}"
+                        onerror="this.onerror=null; this.src='https://www.testo.com/images/not-available.jpg'">
+                    </div>
+                    <div class="col-lg-8">
+                        <h2>${title.innerHTML}</h2>
+                        <p>${description.innerHTML}</p>
+                        <div>
+                            ${news.source.name || "no source"} * ${moment(news.publishedAt).fromNow()}
+                        </div>
+                    </div>
+                </div>`;
     }).join("");
 
     document.getElementById("news-board").innerHTML = newsHTML;
