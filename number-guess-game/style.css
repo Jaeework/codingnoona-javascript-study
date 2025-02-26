@@ -75,7 +75,7 @@ h1 {
     margin-bottom: 5%;
 }
 
-#result-area, #chance-area, #history-area, .input-area, .answer-area {
+#result-area, #chance-area, #history-area, .input-area {
     font-size: 1rem;
     margin-bottom: 3%;
     padding: 10px;
@@ -100,16 +100,6 @@ h1 {
 #history-area {
     color: #aa60c8;
     font-weight: bold;
-}
-
-.answer-area {
-    margin: 3% 0 0 0;
-    background-color: #e9ecef;
-    min-height: 50px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
 }
 
 #chance-area {
@@ -166,6 +156,10 @@ button:disabled {
 
 /* 모바일 세로 360px ~ */
 @media (max-width: 600px) {
+    .game-container {
+        margin-top: 10%;
+    }
+
     h1 {
         font-size: 1.6rem;
     }

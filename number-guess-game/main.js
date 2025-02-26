@@ -4,14 +4,14 @@
 // 랜덤번호가 < 유저번호 Down!!
 // 랜덤번호가 > 유저번호 Up!!
 // Reset버튼을 누르면 게임이 리셋된다.
-// 3번의 기회를 다쓰면 게임이 끝남 (더이상 추측 불가, 버튼이 disable )
+// 5번의 기회를 다쓰면 게임이 끝남 (더이상 추측 불가, 버튼이 disable )
 // 유저가 1~100 범위 밖에 숫자를 입력하면 알림, 기회를 깍지 않음
 // 유저가 이미 입력한 숫자를 또 입력하면 알림, 기회를 깍지 않음
 // 남은 기회 소진시 게임오버 메세지 보여주기
 // 그동안 입력한 숫자 보여주기
 
 let randomNumber = 0;
-let chances = 3;
+let chances = 5;
 let gameOver = false;
 let history = [];
 
@@ -21,7 +21,6 @@ let userInput = document.getElementById("user-input");
 let resultArea = document.getElementById("result-area");
 let historyArea = document.getElementById("history-area");
 let chanceArea = document.getElementById("chance-area");
-let answer = document.getElementById("answer");
 
 
 playButton.addEventListener("click", play);
@@ -36,7 +35,6 @@ userInput.addEventListener("focus", function() {
 function generateRandomNumber() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
     console.log("정답", randomNumber);
-    answer.textContent = `${randomNumber}`;
 }
 
 function play() {
@@ -80,7 +78,7 @@ function play() {
 function reset() {
 
     userInput.value = "";
-    chances = 3;
+    chances = 5;
     gameOver = false;
     history = [];
 
