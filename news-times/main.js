@@ -17,7 +17,8 @@ const render = () => {
     const newsHTML = newsList.map((news) => {
                 return  `<div class="row news">
                             <div class="col col-lg-4">
-                                <img class="news-img-size" src="${news.urlToImage || 'https://www.testo.com/images/not-available.jpg'}">
+                                <img class="news-img-size" src="${news.urlToImage || 'https://www.testo.com/images/not-available.jpg'}"
+                                onerror="this.onerror=null; this.src='https://www.testo.com/images/not-available.jpg'">
                             </div>
                             <div class="col col-lg-8">
                                 <h2>${news.title}</h2>
