@@ -1,4 +1,7 @@
 let newsList = [];
+const menus = document.querySelectorAll(".menus button:not(.close-button)");
+menus.forEach((menu) => menu.addEventListener("click", (event) => getNewsByCategory(event)));
+
 const getLatestNews = async () => {
     const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);
 
@@ -12,6 +15,32 @@ const getLatestNews = async () => {
 
     render();
 };
+
+const getNewsByCategory = async(event) => {
+    const category = event.target.textContent.toLowerCase();
+    if(category === "all") {
+        return getLatestNews();
+    }
+    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${category}`);   
+    const response = await fetch(url);
+    const data = await response.json();
+    newsList = data.articles;
+
+    console.log("category ddd", newsList);
+    render();
+};
+
+const getNewsByKeyword = async() => {
+    const keyword = document.getElementById("search-input").value;
+    console.log(keyword);
+    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&q=${keyword}`);
+    const response = await fetch(url);
+    const data = await response.json();
+    newsList = data.articles;
+
+    console.log("keyword ddd", newsList);
+    render();
+}
 
 const render = () => {
     const newsHTML = newsList.map((news) => {
