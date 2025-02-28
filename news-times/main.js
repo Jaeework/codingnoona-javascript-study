@@ -1,45 +1,49 @@
 let newsList = [];
 const menus = document.querySelectorAll(".menus button:not(.close-button)");
 menus.forEach((menu) => menu.addEventListener("click", (event) => getNewsByCategory(event)));
+let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);
+
+const getNews = async() => {
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if(response.status === 200) {
+            if(data.articles.length === 0) {
+                throw new Error("No result for this search");
+            }
+
+            newsList = data.articles;
+            render();
+        } else {
+            throw new Error(data.message);
+        }
+
+    } catch(error) {
+        errorRender(error.message);
+    }
+
+}
 
 const getLatestNews = async () => {
-    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);
-
-    console.log("uuu", url);
-
-    const response = await fetch(url);
-    const data = await response.json();
-    newsList = data.articles;
-
-    console.log("ddd", newsList);
-
-    render();
+    url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);
+    await getNews(url);
 };
 
 const getNewsByCategory = async(event) => {
     const category = event.target.textContent.toLowerCase();
+    
     if(category === "all") {
         return getLatestNews();
     }
-    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${category}`);   
-    const response = await fetch(url);
-    const data = await response.json();
-    newsList = data.articles;
-
-    console.log("category ddd", newsList);
-    render();
+    url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${category}`);   
+    await getNews();
 };
 
 const getNewsByKeyword = async() => {
     const keyword = document.getElementById("search-input").value;
-    console.log(keyword);
-    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&q=${keyword}`);
-    const response = await fetch(url);
-    const data = await response.json();
-    newsList = data.articles;
-
-    console.log("keyword ddd", newsList);
-    render();
+    url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&q=${keyword}`);
+    await getNews();
 }
 
 const render = () => {
@@ -69,6 +73,16 @@ const render = () => {
 
     document.getElementById("news-board").innerHTML = newsHTML;
 };
+
+
+const errorRender = (errorMessage) => {
+    const errorHTML = `<div class="alert alert-danger" role="alert">
+                            ${errorMessage}
+                        </div>`;
+
+    document.getElementById("news-board").innerHTML = errorHTML;
+
+}
 
 getLatestNews();
 
