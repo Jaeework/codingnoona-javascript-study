@@ -7,6 +7,7 @@ let groupSize = 5;
 
 const menus = document.querySelectorAll(".menus button:not(.close-button)");
 menus.forEach((menu) => menu.addEventListener("click", (event) => getNewsByCategory(event)));
+
 const searchInput = document.getElementById("search-input");
 searchInput.addEventListener("keypress", (event) => {
     if(event.key === "Enter") {
@@ -22,7 +23,7 @@ const getNews = async() => {
 
         const response = await fetch(url);
         const data = await response.json();
-        console.log('data', data)
+
         if(response.status === 200) {
             if(data.articles.length === 0) {
                 throw new Error("No result for this search");
@@ -127,6 +128,13 @@ const paginationRender = () => {
     let firstPage = lastPage - (groupSize - 1) <= 0 ? 1 : lastPage - (groupSize - 1);
 
     let paginationHTML = `<li class="page-item ${page === 1? 'disabled' : ''}"
+                        ${page !== 1 ? `onclick="moveToPage(1)"` : ''}>
+                                <a class="page-link" aria-label="Previous">
+                                    <span aria-hidden="true">&lt;&lt;</span>
+                                </a>
+                            </li>`;
+    
+    paginationHTML += `<li class="page-item ${page === 1? 'disabled' : ''}"
                         ${page !== 1 ? `onclick="moveToPage(${page-1})"` : ''}>
                                 <a class="page-link" aria-label="Previous">
                                     <span aria-hidden="true">&lt;</span>
@@ -146,12 +154,17 @@ const paginationRender = () => {
                                 <span aria-hidden="true">&gt;</span>
                             </a>
                         </li>`;
+    paginationHTML += `<li class="page-item ${page === totalPages ? 'disabled' : ''}"
+                        ${page !== totalPages ? `onclick="moveToPage(${totalPages})"` : ''}>
+                            <a class="page-link" aria-label="Next">
+                                <span aria-hidden="true">&gt;&gt;</span>
+                            </a>
+                        </li>`;
 
     document.querySelector(".pagination").innerHTML = paginationHTML;
 }
 
 const moveToPage = (pageNum) => {
-    console.log("movetopage", pageNum);
     page = pageNum;
     getNews();
 
