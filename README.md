@@ -27,9 +27,14 @@
 - [x] 유저가 1~100범위 밖에 숫자를 입력할시에 경고메세지가 뜬다
 - [x] 유저가 이미 입력한 값을 또 입력할 시에 경고메세지가 뜬다
 - [x] 반응형 UI
-#### 🖼 결과
-![숫자 맞추기 게임](https://github.com/user-attachments/assets/af7727e3-f735-4e8a-8ebb-200516b36cb6)
-##### [🔢 숫자 맞추기 게임 하러 가기](https://jayso-number-guess-game.netlify.app/)
+
+#### 🖼 최종 결과물
+
+<a href="https://jayso-number-guess-game.netlify.app/" target="_blank">
+    <img src="https://github.com/user-attachments/assets/af7727e3-f735-4e8a-8ebb-200516b36cb6" alt="숫자 맞추기 게임" width="500px">
+</a>
+
+#### [🔢 숫자 맞추기 게임 하러 가기](https://jayso-number-guess-game.netlify.app/)
 
 
 ### 2.2 할 일 앱 만들기
@@ -43,6 +48,15 @@
 ### 2.4 할 일 앱 만들기 이어서...
 - [x] 탭을 이용해 아이템들을 상태별로 나누어서 볼 수 있다.
 - [x] 모바일 버전에서도 확인할 수 있는 반응형 웹이다
+
+#### 🖼 최종 결과물
+
+<a href="https://jayso-todolist.netlify.app/" target="_blank">
+    <img src="https://github.com/user-attachments/assets/353ba4da-7998-4bd4-ab21-c93b1aedeeb2" alt="오늘의 할 일 리스트" width="500px">
+</a>
+
+#### [✔✔ 오늘의 할 일 등록 하러 가기](https://jayso-todolist.netlify.app/)
+
 ### 2.5 할 일 앱 다시 만들어보기
 ### 2.6 [ES6 자바스크립트 최신 문법](https://hackmd.io/@qEGG2y5qSJeoFpoWLh1Dzw/Byiq3VU9kg)
 ### 2.7 [배열 함수](https://hackmd.io/@qEGG2y5qSJeoFpoWLh1Dzw/r1yTMZv91l)
@@ -81,4 +95,18 @@
 - [x] 페이지 숫자 버튼 클릭을 통해 페이지간 이동이 가능해야 한다
 - [x] 이전페이지, 다음 페이지 버튼 구현
 - [x] 페이지네이션에 디자인이 되어있어야 한다
+### 3.7 뉴스 타임즈 만들기 이어서...
+- [x] 키워드 검색 시, 엔터 키를 눌러도 검색 가능하도록 구현
+- [x] 뉴스 기사 클릭 시, 해당 기사 원문을 새 탭으로 띄우도록 구현
+- [ ] 전반적인 CSS 스타일 개선
+- [ ] << >> 버튼 추가하고 제일 처음과 제일 끝 페이지로 이동하도록 구현
+- [ ] 처음과 끝 페이지 그룹에서는 화살표 없애기
+
+#### 🖼 최종 결과물
+
+<a href="https://jayso-times.netlify.app/" target="_blank">
+    <img src="https://github.com/user-attachments/assets/3f7432c0-98c1-49ef-bcc3-16f71187771f" alt="뉴스 타임즈" width="500px">
+</a>
+
+##### [📰 최신 뉴스 확인 하러 가기](https://jayso-times.netlify.app/)
 
