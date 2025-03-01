@@ -1,11 +1,18 @@
 let newsList = [];
-const menus = document.querySelectorAll(".menus button:not(.close-button)");
-menus.forEach((menu) => menu.addEventListener("click", (event) => getNewsByCategory(event)));
 let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);
 let totalResults = 0;
 let page = 1;
 const pageSize = 10;
 let groupSize = 5;
+
+const menus = document.querySelectorAll(".menus button:not(.close-button)");
+menus.forEach((menu) => menu.addEventListener("click", (event) => getNewsByCategory(event)));
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("keypress", (event) => {
+    if(event.key === "Enter") {
+        getNewsByKeyword();
+    }
+});
 
 const getNews = async() => {
 
@@ -52,7 +59,11 @@ const getNewsByCategory = async(event) => {
 };
 
 const getNewsByKeyword = async() => {
-    const keyword = document.getElementById("search-input").value;
+    const keyword = searchInput.value;
+    if(!keyword) {
+        searchInput.focus();
+        return;
+    }
     page = 1;
     url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&q=${keyword}`);
     await getNews();
@@ -68,7 +79,7 @@ const render = () => {
             ? (news.description.length > 200 ? news.description.substring(0, 200) + "..." : news.description)
             : "내용 없음";
 
-        return `<div class="row news">
+        return `<div class="row news" onclick="window.open('${news.url}')">
                     <div class="col-lg-4 news-img bg-dark">
                         <img src="${news.urlToImage || 'https://www.testo.com/images/not-available.jpg'}"
                         onerror="this.onerror=null; this.src='https://www.testo.com/images/not-available.jpg'">
