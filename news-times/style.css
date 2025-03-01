@@ -106,10 +106,16 @@ body {
     flex-direction: column;
 }
 
+.news-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+    padding: 2em 1em;
+}
+
 .news {
     width: 95%;
-    border-bottom: 2px solid black;
-    padding: 1em;
     transition: transform 0.2s;
 }
 
@@ -133,10 +139,12 @@ body {
 
 .news-img img {
     max-width: 100%;
+    min-height: 200px;
     max-height: 250px;
 }
 
 .news-content {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -200,6 +208,10 @@ body {
 }
 
 @media (max-width: 600px) {
+    .nav-container {
+        margin-left: 1em;
+    }
+
     .menus {
         height: 100%;
         width: 0;
@@ -220,12 +232,12 @@ body {
         padding: 8px 8px 8px 32px;
         font-size: 18px;
         color: #818181;
-        display: inline;
+        display: block;
         transition: background-color 0.3s;
     }
 
     .menus .close-button {
-        display: inline;
+        display: block;
         position: absolute;
         top: 0;
         right: 25px;
@@ -235,7 +247,7 @@ body {
     }
 
     .open-button {
-        display: inline;
+        display: block;
         font-size: 25px;
         cursor: pointer;
         margin-right: 5px;
