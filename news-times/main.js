@@ -15,6 +15,14 @@ searchInput.addEventListener("keypress", (event) => {
     }
 });
 
+document.querySelector(".head-line svg").addEventListener("click", () => {
+    getLatestNews();
+    if(searchInput) {
+        searchInput.value = "";
+        document.getElementsByClassName("search-input-area")[0].classList.add("hide");
+    }
+});
+
 const getNews = async() => {
 
     try {
@@ -108,7 +116,7 @@ const render = () => {
 
 
 const errorRender = (errorMessage) => {
-    const errorHTML = `<div class="alert alert-danger" role="alert">
+    const errorHTML = `<div class="col-lg-12 alert alert-danger" role="alert">
                             ${errorMessage}
                         </div>`;
 

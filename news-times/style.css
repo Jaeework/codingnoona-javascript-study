@@ -71,6 +71,7 @@ body {
 
 .head-line svg {
     width: 430px;
+    cursor: pointer;
 }
 
 .menus {
