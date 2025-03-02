@@ -44,12 +44,18 @@ const getNews = async() => {
 }
 
 const getLatestNews = async () => {
+    menus.forEach(button => button.classList.remove("active"));
+    menus[0].classList.add("active");
+
     url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);
     page = 1;
     await getNews(url);
 };
 
 const getNewsByCategory = async(event) => {
+    menus.forEach(button => button.classList.remove("active"));
+    event.target.classList.add("active");
+    
     const category = event.target.textContent.toLowerCase();
     if(category === "all") {
         return getLatestNews();

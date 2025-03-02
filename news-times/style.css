@@ -92,6 +92,10 @@ body {
     transition: background-color 0.2s;
 }
 
+.menus button.active {
+    background-color: #dde5f0;
+}
+
 .menus button:hover {
     background-color: #dde5f0;
 }
