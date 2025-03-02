@@ -51,10 +51,10 @@ const getLatestNews = async () => {
 
 const getNewsByCategory = async(event) => {
     const category = event.target.textContent.toLowerCase();
-    page = 1;
     if(category === "all") {
         return getLatestNews();
     }
+    page = 1;
     url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${category}`);   
     await getNews();
 };
@@ -111,35 +111,26 @@ const errorRender = (errorMessage) => {
 }
 
 const paginationRender = () => {
-    // totalResult,
-    // page
-    // pageSize
-    // groupSize
-
-    // totalPages
     const totalPages = Math.ceil(totalResults / pageSize);
-    // pageGroup
     const pageGroup = Math.ceil(page / groupSize);
-    // last page
-    // 마지막 페이지 그룹이 그룹사이즈보다 작다?
-    let lastPage = (pageGroup * groupSize > totalPages) ? totalPages : pageGroup * groupSize;
 
-    // first page
+    let lastPage = (pageGroup * groupSize > totalPages) ? totalPages : pageGroup * groupSize;
     let firstPage = lastPage - (groupSize - 1) <= 0 ? 1 : lastPage - (groupSize - 1);
 
-    let paginationHTML = `<li class="page-item ${page === 1? 'disabled' : ''}"
-                        ${page !== 1 ? `onclick="moveToPage(1)"` : ''}>
-                                <a class="page-link" aria-label="Previous">
+    let paginationHTML = ``;
+
+    if(page !== 1) {
+        paginationHTML += `<li class="page-item" onclick="moveToPage(1)">
+                                <a class="page-link" aria-label="First">
                                     <span aria-hidden="true">&lt;&lt;</span>
                                 </a>
-                            </li>`;
-    
-    paginationHTML += `<li class="page-item ${page === 1? 'disabled' : ''}"
-                        ${page !== 1 ? `onclick="moveToPage(${page-1})"` : ''}>
+                            </li>
+                            <li class="page-item" onclick="moveToPage(${page-1})">
                                 <a class="page-link" aria-label="Previous">
                                     <span aria-hidden="true">&lt;</span>
                                 </a>
                             </li>`;
+    }
 
     for(let i = firstPage; i <= lastPage; i++) {
         paginationHTML += `<li class="page-item ${i === page ? "active" : ""}" 
@@ -148,18 +139,18 @@ const paginationRender = () => {
                             </li>`;
     }
 
-    paginationHTML += `<li class="page-item ${page === totalPages ? 'disabled' : ''}"
-                        ${page !== totalPages ? `onclick="moveToPage(${page+1})"` : ''}>
-                            <a class="page-link" aria-label="Next">
-                                <span aria-hidden="true">&gt;</span>
-                            </a>
-                        </li>`;
-    paginationHTML += `<li class="page-item ${page === totalPages ? 'disabled' : ''}"
-                        ${page !== totalPages ? `onclick="moveToPage(${totalPages})"` : ''}>
-                            <a class="page-link" aria-label="Next">
+    if(page !== totalPages) {
+        paginationHTML += `<li class="page-item" onclick="moveToPage(${page+1})">
+                                <a class="page-link" aria-label="Next">
+                                    <span aria-hidden="true">&gt;</span>
+                                </a>
+                        </li>
+                        <li class="page-item" onclick="moveToPage(${totalPages})">
+                            <a class="page-link" aria-label="Last">
                                 <span aria-hidden="true">&gt;&gt;</span>
                             </a>
                         </li>`;
+    }
 
     document.querySelector(".pagination").innerHTML = paginationHTML;
 }
@@ -167,8 +158,6 @@ const paginationRender = () => {
 const moveToPage = (pageNum) => {
     page = pageNum;
     getNews();
-
-    // window.scrollTo({top: 0, behavior: "smooth"});
 }
 
 getLatestNews();
