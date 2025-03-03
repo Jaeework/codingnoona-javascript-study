@@ -31,7 +31,7 @@
 #### 🖼 최종 결과물
 
 <a href="https://jayso-number-guess-game.netlify.app/" target="_blank">
-    <img src="https://github.com/user-attachments/assets/af7727e3-f735-4e8a-8ebb-200516b36cb6" alt="숫자 맞추기 게임" width="500px">
+    <img src="https://github.com/user-attachments/assets/3b40759f-e638-45de-a6fd-b62df09fb2d7" alt="숫자 맞추기 게임" width="500px">
 </a>
 
 #### [🔢 숫자 맞추기 게임 하러 가기](https://jayso-number-guess-game.netlify.app/)
