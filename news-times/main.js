@@ -9,7 +9,7 @@ const menus = document.querySelectorAll(".menus button:not(.close-button)");
 menus.forEach((menu) => menu.addEventListener("click", (event) => getNewsByCategory(event)));
 
 const searchInput = document.getElementById("search-input");
-searchInput.addEventListener("keypress", (event) => {
+searchInput.addEventListener("keyup", (event) => {
     if(event.key === "Enter") {
         getNewsByKeyword();
     }
